@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forno Imperiale</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="img/logo1.ico" type="image/x-icon" />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="logo-container">
+        <a href="index.html">
+          <img src="img/logo1.png" alt="Forno Imperiale Logo" class="logo-img" />
+        </a>
+        <a href="index.html" class="logo-text">Forno Imperiale</a>
+      </div>
+
+      <ul class="menu">
+        <li><a href="index.html" data-lang="home">Home</a></li>
+        <li><a href="menu.html" data-lang="cardapio">Cardápio</a></li>
+        <li><a href="reserva.html" class="btn-reserva" data-lang="reserva">Fazer Reserva</a></li>
+      </ul>
+
+      <div class="nav-right-controls">
+        <div class="lang-menu">
+          <span id="lang-label">🌐 Idioma</span>
+          <div class="lang-dropdown">
+            <button onclick="setLang('pt')">Português</button>
+            <button onclick="setLang('en')">English</button>
+            <button onclick="setLang('it')">Italiano</button>
+          </div>
+        </div>
+
+        <div class="menu-toggle">☰</div>
+      </div>
+    </nav>
+
+    <!-- CARROSSEL -->
+    <div class="carousel">
+      <div class="slides">
+        <div class="slide active">
+          <img src="img/img1.png" alt="Prato especial da casa" />
+          <div class="caption" data-lang="cap1">Prato Especial da Casa</div>
+        </div>
+
+        <div class="slide">
+          <img src="img/img4.png" alt="Pizza artesanal" />
+          <div class="caption" data-lang="cap2">Pizza Artesanal</div>
+        </div>
+
+        <div class="slide">
+          <img src="img/img3.png" alt="Sobremesas deliciosas" />
+          <div class="caption" data-lang="cap3">Sobremesas Deliciosas</div>
+        </div>
+
+        <div class="slide">
+          <img src="img/img2.png" alt="Massas deliciosas" />
+          <div class="caption" data-lang="cap4">Massas Deliciosas</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOAS-VINDAS -->
+    <div class="welcome-section">
+      <h1 id="main-title"><span data-lang="titulo_boasvindas">Bem-vindo ao</span> <span class="titulo-destaque">Forno Imperiale</span></h1>
+    </div>
+
+    <!-- ESPECIALIDADES -->
+    <section class="menu-destaque">
+      <h2 class="section-title" data-lang="especialidades">Nossas Especialidades</h2>
+
+      <div class="cards-container">
+        <div class="card">
+          <div class="card-img">
+            <img src="img/car1.jpeg" alt="Massas Artesanais" />
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" data-lang="massas">Massas Artesanais</h3>
+            <p data-lang="entradas_desc">Sabores delicados para iniciar sua experiência gastronômica.</p>
+            <a href="menu.html#massas" class="btn-primary" data-lang="ver_detalhes">Ver Detalhes</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img">
+            <img src="img/car2.jpeg" alt="Lasanhas Forneadas" />
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" data-lang="lasanhas">Lasanhas Forneadas</h3>
+            <p data-lang="frutos_mar_desc">Camarões selecionados e grelhados na perfeição.</p>
+            <a href="menu.html#lasanhas" class="btn-primary" data-lang="ver_detalhes">Ver Detalhes</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img">
+            <img src="img/car3.jpeg" alt="Pizzas de Fermentação Natural" />
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" data-lang="pizzas">Pizzas Especiais</h3>
+            <p data-lang="grelhados_desc">Cortes nobres preparados no fogo alto para selar o sabor.</p>
+            <a href="menu.html#pizzas" class="btn-primary" data-lang="ver_detalhes">Ver Detalhes</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img">
+            <img src="img/ca4.jpeg" alt="Raviolis Frescos" />
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" data-lang="ravioli">Raviolis Frescos</h3>
+            <p data-lang="sushi_desc">A fusão perfeita entre tradição e toque contemporâneo.</p>
+            <a href="menu.html#ravioli" class="btn-primary" data-lang="ver_detalhes">Ver Detalhes</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE NÓS -->
+    <section class="about-section">
+      <div class="about-content">
+        <h2 id="about-title" data-lang="sobre">Sobre o Forno Imperiale</h2>
+        <p id="about-text" data-lang="sobre_desc">Desde 1992, trazemos a essência da culinária italiana para o seu prato.</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-info">
+          <h3 data-lang="contato">Contato</h3>
+          <div class="contact-text">
+            <p>📍 Rua Kaboom, 123 - Centro</p>
+            <p>📞 (11) 9999-9999</p>
+
+            <div class="team-list">
+              <div class="team-member">
+                <b>Ana Júlia Jannuzzi</b>
+                <a href="mailto:anajuliajannuzzi@gmail.com">anajuliajannuzzi@gmail.com</a>
+              </div>
+              <div class="team-member">
+                <b>Lucas Machado Crispim</b>
+                <a href="mailto:lucasmachadocrispim@gmail.com">lucasmachadocrispim@gmail.com</a>
+              </div>
+              <div class="team-member">
+                <b>Luiz Carlos de Vasconcellos Jr.</b>
+                <a href="mailto:luizcarlosdvj@gmail.com">luizcarlosdvj@gmail.com</a>
+              </div>
+              <div class="team-member">
+                <b>Nicolas Marcelino de Gouvêa</b>
+                <a href="mailto:nicolasgouvea24@gmail.com">nicolasgouvea24@gmail.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="map">
+          <iframe src="https://www.google.com/maps?q=teera&output=embed" loading="lazy" title="Localização Forno Imperiale"> </iframe>
+        </div>
+
+        <div class="footer-social">
+          <h3 data-lang="siga">Siga-nos</h3>
+          <p>
+            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a> |
+            <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 Forno Imperiale —
+          <span data-lang="direitos">Todos os direitos reservados.</span>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Botão WhatsApp flutuante -->
+    <a href="https://wa.me/5511999999999" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contactar pelo WhatsApp"> 📱 </a>
+
+    <script src="Script.js"></script>
+  </body>
+</html>

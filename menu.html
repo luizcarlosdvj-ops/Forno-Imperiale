@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio | Forno Imperiale</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/logo1.ico" type="image/x-icon" />
+    <style>
+        /* ESTILOS ESPECÍFICOS DA PÁGINA DE CARDÁPIO */
+
+        .menu-page {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px 40px;
+        }
+
+        /* Cada categoria (Entradas, Pratos, etc.) */
+        .menu-category {
+            margin-bottom: 60px;
+            scroll-margin-top: 90px; /* Compensa a navbar fixa ao navegar via #id */
+        }
+
+        .menu-category h2 {
+            color: #6A1B2E;
+            font-size: 28px;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #D4AF37;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* Grid responsivo dos itens do cardápio */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        @media (max-width: 900px) {
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Card de cada item */
+        .menu-item {
+            background: #FFFFFF;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(106, 27, 46, 0.15);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .menu-item-body {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .menu-item-body h3 {
+            color: #6A1B2E;
+            margin-bottom: 10px;
+        }
+
+        .menu-item-body p {
+            font-size: 14px;
+            color: #555555;
+            margin-bottom: 10px;
+        }
+
+        /* Etiqueta "Chef Recomenda" */
+        .chef {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #D4AF37;
+            color: #FFFFFF;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .menu-page {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="img/logo1.png" alt="Forno Imperiale Logo" class="logo-img">
+            </a>
+            <a href="index.html" class="logo-text">Forno Imperiale</a>
+        </div>
+
+        <ul class="menu">
+            <li><a href="index.html" data-lang="home">Home</a></li>
+            <li><a href="menu.html" data-lang="cardapio">Cardápio</a></li>
+            <li><a href="reserva.html" class="btn-reserva" data-lang="reserva">Fazer Reserva</a></li>
+        </ul>
+
+        <div class="nav-right-controls">
+
+            <div class="lang-menu">
+                <span id="lang-label">🌐 Idioma</span>
+                <div class="lang-dropdown">
+                    <button onclick="setLang('pt')">Português</button>
+                    <button onclick="setLang('en')">English</button>
+                    <button onclick="setLang('it')">Italiano</button>
+                </div>
+            </div>
+
+            <div class="menu-toggle">☰</div>
+
+        </div>
+    </nav>
+
+    <main class="menu-page">
+
+        <!-- ENTRADAS -->
+        <div class="menu-category" id="entradas">
+            <h2 data-lang="menu_entradas">Entradas</h2>
+            <div class="menu-grid">
+
+                <div class="menu-item">
+                    <img src="img/ent1.jpg" alt="Bruschetta Italiana">
+                    <div class="menu-item-body">
+                        <h3 data-lang="item_bruschetta_t">Bruschetta Italiana</h3>
+                        <p data-lang="item_bruschetta_d">Pão artesanal com tomate, manjericão e azeite.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="img/ent2.jpg" alt="Carpaccio">
+                    <div class="menu-item-body">
+                        <h3 data-lang="item_carpaccio_t">Carpaccio</h3>
+                        <p data-lang="item_carpaccio_d">Finas fatias de carne com parmesão.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="img/ent3.avif" alt="Antipasto della Casa">
+                    <div class="menu-item-body">
+                        <h3 data-lang="item_antipasto_t">Antipasto della Casa</h3>
+                        <p data-lang="item_antipasto_d">Seleção de frios italianos, azeitonas marinadas e queijos curados.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- PRATOS PRINCIPAIS-->
+
+        <div class="menu-category" id="especialidades-imperiais">
+            <h2 data-lang="menu_especialidades">Especialidades Imperiais</h2>
+            
+            <div class="menu-grid">
+
+                <div class="menu-item">
+                    <img src="img/car1.jpeg" alt="Fettuccine com Mignon">
+                    <div class="menu-item-body">
+                        <h3 data-lang="massas">Massa Artesanai</h3>
+                        <p data-lang="item_fettuccine_d">Massa fresca ao molho de queijos com medalhão de filé.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="img/car2.jpeg" alt="Lasanha Gratinada">
+                    <div class="menu-item-body">
+                        <h3 data-lang="lasanhas">Lasanha Forneada</h3>
+                        <p data-lang="lasanha_desc">Receita tradicional com molho artesanal e muito queijo.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="img/car3.jpeg" alt="Pizza Marguerita">
+                    <div class="menu-item-body">
+                        <h3 data-lang="pizzas">Pizza Especial</h3>
+                        <p data-lang="pizza_desc">Manjericão fresco, muçarela de búfala e tomate cereja.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <span class="chef" data-lang="chef_recomenda">Chef Recomenda</span>
+                    <img src="img/ca4.jpeg" alt="Ravioli ao Sugo">
+                    <div class="menu-item-body">
+                        <h3 data-lang="ravioli">Ravioli Fresco</h3>
+                        <p data-lang="ravioli_desc">Massa recheada ao molho de tomates frescos e ervas.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="img/car5.jpeg" alt="Fettuccine à Carbonara">
+                    <div class="menu-item-body">
+                        <h3 data-lang="item_carbonara_t">Carbonara Imperial</h3>
+                        <p data-lang="item_carbonara_d">Massa fresca envolta em creme de gemas, queijo pecorino e pancetta crocante.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="img/car6.jpeg" alt="Pizza de Presunto Parma">
+                    <div class="menu-item-body">
+                        <h3 data-lang="item_parma_t">Pizza de Parma e Rúcula</h3>
+                        <p data-lang="item_parma_d">Presunto parma selecionado, folhas frescas de rúcula e lascas de parmesão.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        </div>
+
+        <!-- PIZZAS -->
+        <div class="menu-category" id="pizzas">
+            <h2 data-lang="menu_pizzas">Pizzas</h2>
+            <div class="menu-grid">
+
+              <div class="menu-item">
+                <span class="chef" data-lang="chef_recomenda">Chef Recomenda</span>
+                  <img src="img/Pizza1.jpeg" alt="Pizza Calabresa Gourmet">
+                  <div class="menu-item-body">
+                      <h3 data-lang="item_pizza_calabresa_t">Calabresa Imperial</h3>
+                      <p data-lang="item_pizza_calabresa_d">Calabresa artesanal defumada, cebolas roxas e azeitonas pretas sobre molho de tomate fresco.</p>
+                  </div>
+              </div>
+
+              <div class="menu-item">
+                  <img src="img/Pizza2.jpeg" alt="Pizza Marguerita Clássica">
+                  <div class="menu-item-body">
+                      <h3 data-lang="item_pizza_marguerita_t">Marguerita Clássica</h3>
+                      <p data-lang="item_pizza_marguerita_d">A legítima combinação italiana: muçarela de búfala, manjericão fresco e azeite extravirgem.</p>
+                  </div>
+              </div>
+
+              <div class="menu-item">
+                  <img src="img/Pizza3.jpeg" alt="Pizza Pepperoni Especial">
+                  <div class="menu-item-body">
+                      <h3 data-lang="item_pizza_pepperoni_t">Pepperoni Supremo</h3>
+                      <p data-lang="item_pizza_pepperoni_d">Fatias crocantes de pepperoni premium com um toque levemente picante e muito queijo derretido.</p>
+                  </div>
+              </div>
+
+            </div>
+        </div>
+
+        <!-- SOBREMESAS -->
+        <div class="menu-category" id="sobremesas">
+            <h2 data-lang="menu_sobremesas">Sobremesas</h2>
+            <div class="menu-grid">
+
+                <div class="menu-item">
+                    <img src="img/Bolo.jpeg" alt="Torta de Morango Especial">
+                    <div class="menu-item-body">
+                        <h3 data-lang="item_torta_t">Torta de Morango</h3>
+                        <p data-lang="item_torta_d">Base crocante com creme suave e morangos frescos selecionados.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <span class="chef" data-lang="chef_recomenda">Chef Recomenda</span>
+                    <img src="img/Tira.jpeg" alt="Tiramisù Tradicional">
+                    <div class="menu-item-body">
+                        <h3 data-lang="item_tiramisu_t">Tiramisù Tradicional</h3>
+                        <p data-lang="item_tiramisu_d">Clássico italiano com camadas de biscoito, café e creme mascarpone.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="img/Pasta.jpeg" alt="Palha Italiana de Ninho">
+                    <div class="menu-item-body">
+                        <h3 data-lang="item_palha_t">Palha Italiana</h3>
+                        <p data-lang="item_palha_d">Delicioso brigadeiro gourmet com pedaços de biscoito e toque de leite em pó.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- BEBIDAS -->
+        <div class="menu-category" id="bebidas">
+            <h2 data-lang="menu_bebidas">Bebidas</h2>
+            <div class="menu-grid">
+
+                <div class="menu-item">
+                    <img src="img/beb1.webp" alt="Vinho Tinto Italiano">
+                    <div class="menu-item-body">
+                        <h3 data-lang="item_vinho_t">Vinho Tinto Italiano</h3>
+                        <p data-lang="vinho_desc">Vinho tinto italiano de alta qualidade, encorpado e com notas de frutas maduras.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="img/beb2.webp" alt="Água com Gás">
+                    <div class="menu-item-body">
+                        <h3 data-lang="item_agua_t">Soda Citrus</h3>
+                        <p data-lang="soda_desc">Refrescante combinação de água gaseificada, fatias de limão siciliano e gelo.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="img/beb3.webp" alt="Espresso Italiano">
+                    <div class="menu-item-body">
+                        <h3 data-lang="item_espresso_t">Espresso Italiano</h3>
+                        <p data-lang="item_espresso_d">Café expresso encorpado, extraído lentamente, servido com casquinha de limão siciliano.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Botão WhatsApp flutuante -->
+    <a href="https://wa.me/5511999999999" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contactar pelo WhatsApp">
+        📱
+    </a>
+
+    <script src="Script.js"></script>
+
+</body>
+</html>

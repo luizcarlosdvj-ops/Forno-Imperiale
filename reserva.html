@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Reserva | Forno Imperiale</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="img/logo1.ico" type="image/x-icon" />
+    <style>
+      .reserva-container {
+        max-width: 600px;
+        margin: 120px auto;
+        padding: 30px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .reserva-container h2 {
+        text-align: center;
+        color: #6a1b2e;
+        margin-bottom: 25px;
+      }
+
+      .reserva-container input,
+      .reserva-container select,
+      .reserva-container textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+      }
+
+      .reserva-container button {
+        width: 100%;
+        padding: 12px;
+        background: #6a1b2e;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .reserva-container button:hover {
+        background: #4e1321;
+      }
+
+      #precoTotal {
+        font-weight: bold;
+        font-size: 18px;
+        text-align: center;
+        color: #d4af37;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="logo-container">
+        <a href="index.html">
+          <img src="img/logo1.png" class="logo-img" />
+        </a>
+        <a href="index.html" class="logo-text">Forno Imperiale</a>
+      </div>
+
+      <ul class="menu">
+        <li><a href="index.html" data-lang="nav_home">Home</a></li>
+        <li><a href="menu.html" data-lang="nav_menu">Cardápio</a></li>
+        <li><a href="reserva.html" class="btn-reserva" data-lang="nav_reserva"> Fazer Reserva</a></li>
+      </ul>
+
+      <div class="nav-right-controls">
+        <div class="lang-menu">
+          <span class="lang-current" id="lang-label">🌐 Idioma</span>
+          <div class="lang-dropdown">
+            <button onclick="setLang('pt')">Português</button>
+            <button onclick="setLang('en')">English</button>
+            <button onclick="setLang('it')">Italiano</button>
+          </div>
+        </div>
+
+        <div class="menu-toggle">☰</div>
+      </div>
+    </nav>
+
+    <div class="reserva-container">
+      <h2 data-lang="reserva_titulo">Fazer Reserva</h2>
+
+      <form id="formReserva">
+        <input type="text" id="nome" placeholder="Seu nome" required />
+
+        <input type="email" id="email" placeholder="Seu email" required />
+
+        <input type="date" id="data" required />
+
+        <select id="mesa">
+          <option value="0" data-lang="reserva_escolha">Escolha o tipo de mesa</option>
+          <option value="50">Mesa padrão (2 pessoas) - R$50</option>
+          <option value="90">Mesa família (4 pessoas) - R$90</option>
+          <option value="150">Mesa VIP (6 pessoas) - R$150</option>
+        </select>
+
+        <input type="number" id="criancas" placeholder="Número de crianças" min="0" />
+
+        <textarea id="mensagem" placeholder="Observações"></textarea>
+
+        <p id="precoTotal">Total: R$0</p>
+
+        <button type="submit" data-lang="reserva_enviar">Enviar Reserva</button>
+
+        <p id="mensagemSucesso" style="display: none; color: green; text-align: center; margin-top: 15px" data-lang="reserva_sucesso">Reserva feita com sucesso! Olhe seu email para confirmar.</p>
+      </form>
+    </div>
+
+    <script src="Script.js"></script>
+  </body>
+</html>

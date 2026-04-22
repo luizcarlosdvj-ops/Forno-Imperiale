@@ -1,0 +1,537 @@
+/* ============================================================
+   FORNO IMPERIALE — STYLESHEET
+   Paleta:
+     Vinho escuro : #6A1B2E
+     Dourado      : #D4AF37
+     Creme        : #F5F1E8
+     Grafite      : #2B2B2B
+     Branco       : #FFFFFF
+   ============================================================ */
+
+/* --- RESET & BASE --- */
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f5f1e8;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  padding-top: 70px;
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #6a1b2e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  z-index: 1000;
+  border-bottom: 3px solid #d4af37;
+}
+
+/* --- Logo --- */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.1);
+}
+
+.logo-text {
+  color: #d4af37;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+/* --- Menu principal --- */
+.menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #f5f1e8;
+  font-size: 17px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #d4af37;
+}
+
+/* Botão de reserva na navbar */
+.btn-reserva {
+  background-color: #d4af37 !important;
+  color: #6a1b2e !important;
+  padding: 10px 20px !important;
+  border-radius: 25px;
+  font-weight: bold !important;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease !important;
+}
+
+.btn-reserva:hover {
+  background-color: #ffffff !important;
+  transform: scale(1.05);
+}
+
+/* --- Controles direita (idioma) --- */
+.nav-right-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.lang-menu {
+  position: relative;
+  cursor: pointer;
+  color: #f5f1e8;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 5px;
+}
+
+.lang-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: #6a1b2e;
+  border: 1px solid #d4af37;
+  border-radius: 8px;
+  min-width: 130px;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.lang-dropdown button {
+  background: none;
+  border: none;
+  color: #f5f1e8;
+  padding: 12px;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.lang-dropdown button:hover {
+  background: #d4af37;
+  color: #6a1b2e;
+}
+
+.lang-menu:hover .lang-dropdown {
+  display: flex;
+}
+
+/* Hambúrguer — oculto no desktop */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  color: #d4af37;
+  cursor: pointer;
+}
+
+/* ============================================================
+   CARROSSEL
+   ============================================================ */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+.slides {
+  position: relative;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.caption {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  color: #ffffff;
+  font-size: 24px;
+  background: rgba(106, 27, 46, 0.85);
+  padding: 15px 25px;
+  border-radius: 8px;
+  border-left: 5px solid #d4af37;
+}
+
+/* ============================================================
+   SEÇÃO DE BOAS-VINDAS
+   ============================================================ */
+.welcome-section {
+  text-align: center;
+  padding: 60px 20px 60px 20px;
+  background-color: #d4af37;
+  border-top: 3px solid #6a1b2e;
+  border-bottom: 3px solid #6a1b2e;
+}
+
+#main-title {
+  color: #2b2b2b;
+  font-size: 42px;
+}
+
+.titulo-destaque {
+  color: #6a1b2e;
+}
+/* ============================================================
+   CARDS DE ESPECIALIDADES — GRID 2×2
+   ============================================================ */
+.menu-destaque {
+  padding: 60px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 20px 0;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.6s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(106, 27, 46, 0.2);
+}
+
+.card-img {
+  height: 250px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-img img {
+  transform: scale(1.1);
+}
+
+.card-body {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-title {
+  color: #6a1b2e;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.card-body p {
+  color: #555555;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* ============================================================
+   BOTÕES
+   ============================================================ */
+.btn-primary {
+  background-color: #6a1b2e;
+  color: #ffffff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #d4af37;
+  color: #2b2b2b;
+}
+
+/* ============================================================
+   SOBRE NÓS
+   ============================================================ */
+.about-section {
+  background-color: #ffffff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-content h2 {
+  color: #6a1b2e;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  color: #2b2b2b;
+  line-height: 1.8;
+  font-size: 18px;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background-color: #2b2b2b;
+  color: #f5f1e8;
+  padding: 50px 20px 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+.footer-info h3,
+.footer-social h3 {
+  color: #d4af37;
+  margin-bottom: 15px;
+}
+
+.footer-social a {
+  text-decoration: none;
+  color: #f5f1e8;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: #d4af37;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  font-size: 14px;
+}
+
+.contact-text p {
+  margin-bottom: 8px;
+  white-space: nowrap;
+}
+
+.team-list {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.team-member b {
+  display: block;
+  color: #d4af37;
+  font-size: 15px;
+}
+
+.team-member a {
+  color: #f5f1e8;
+  font-size: 13px;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.team-member a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.map {
+  width: 100%;
+  max-width: 350px;
+  height: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ============================================================
+   BOTÃO WHATSAPP FLUTUANTE
+   ============================================================ */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #25d366;
+  color: #ffffff;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+  z-index: 999;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ============================================================
+   RESPONSIVIDADE
+   ============================================================ */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 10px 25px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background-color: #6a1b2e;
+    border-bottom: 3px solid #d4af37;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .carousel {
+    height: 350px;
+  }
+
+  #main-title {
+    font-size: 30px;
+  }
+
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  .card-img {
+    height: 200px;
+  }
+
+  .map iframe {
+    height: 200px;
+  }
+}
